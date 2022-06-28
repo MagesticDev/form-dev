@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {catchError, Observable, of, tap} from "rxjs";
+import {catchError, Observable, of, tap, throwError} from "rxjs";
 import localeFr from "@angular/common/locales/fr";
 
 /**
@@ -46,7 +46,11 @@ export class AuthService
         })
       }), catchError((error: HttpErrorResponse): Observable<{status: number, user: any}> =>
       {
-          return of({status: error.status, message: error.message, user: null})
+          return throwError(() =>
+          {
+            const err:any = new Error(error.message);
+            err.status = error.status
+          });
       })
     );
   }

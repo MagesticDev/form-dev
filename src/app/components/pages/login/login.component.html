@@ -1,0 +1,26 @@
+<div class="flex flex-row h-screen">
+  <aside class="bg-primary hidden md:block md:w-1/2 md:flex md:flex-row justify-center items-center">
+    <div class="bg-white rounded-lg w-2/3 px-6 py-12">
+      <img src="assets/logo.png" alt="" class="h-full bg-center bg-contain ">
+    </div>
+  </aside>
+  <div class="flex justify-center items-center md:w-1/2">
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()"
+          class="flex flex-col w-2/3 h-3/5 justify-between">
+      <div class="flex flex-col">
+        <h1 class="text-4xl bold mb-1">Se connecter</h1>
+        <div class="border-b-4 border-accent mb-1.5 py-2 flex">
+          <input type="email" pInputText formControlName="email" placeholder="Adresse email" class="w-full">
+        </div>
+        <div class="border-b-4 border-accent mb-1.5 py-2 flex">
+          <input type="password" pInputText formControlName="password" placeholder="Mot de passe" class="w-full">
+        </div>
+      </div><!-- bg-gradient-to-r uppercase text-white font-bold from-primary to-white"-->
+      <button class="p-button-raised p-button-text"
+              pButton
+              pRipple
+              label="Se connecter"
+      ></button>
+    </form>
+  </div>
+</div>
