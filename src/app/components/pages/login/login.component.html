@@ -1,0 +1,67 @@
+<div class="flex flex-row h-screen">
+  <aside class="bg-primary hidden md:block md:w-1/2 md:flex md:flex-row justify-center items-center">
+    <div class="bg-white rounded-lg w-2/3 px-6 py-12">
+      <img src="assets/logo.png" alt="" class="h-full bg-center bg-contain ">
+    </div>
+  </aside>
+  <div class="flex justify-center items-center md:w-1/2">
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()"
+          class="flex flex-col w-2/3 h-3/5 justify-between">
+      <div class="flex flex-col">
+        <div>
+          <h1 class="text-4xl bold mb-1">Se connecter</h1>
+          <!--<p-messages *ngIf="error && error.status === 404" severity="error">
+            <ng-template pTemplate="">
+              <span class="custom-message">Email ou mot de passe incorrect.</span>
+            </ng-template>
+          </p-messages>
+          <p-messages *ngIf="error && error.status !== 404" severity="error">
+            <ng-template pTemplate="">
+              <span
+                class="custom-message">Le service est momentanément indisponible, veuillez réessayer plus tard.</span>
+            </ng-template>
+          </p-messages>-->
+          <p-message *ngIf="error && error.status === 404" severity="error" text="Email ou mot de passe incorrect.">
+          </p-message>
+          <p-message *ngIf="error && error.status !== 404" severity="error" text="Le service est momentanément indisponible, veuillez réessayer plus tard.">
+          </p-message>
+        </div>
+        <div class="mb-1.5 py-2 flex flex-col">
+          <input type="email" pInputText formControlName="email" placeholder="Adresse email"
+                 class="border-b-4 border-accent py-2 w-full">
+          <small class="p-error block" *ngIf="loginForm.get('email')?.errors
+                && loginForm.get('email')?.hasError('required')
+                && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
+          >
+            Email requis.
+          </small>
+          <small class="p-error block" *ngIf="loginForm.get('email')?.errors
+                && loginForm.get('email')?.hasError('email')
+                && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
+          >
+            Ceci n'est pas une adresse email.
+          </small>
+
+        </div>
+        <div class="mb-1.5 py-2 flex flex-col">
+          <input type="password" pPassword formControlName="password" placeholder="Mot de passe"
+                 class="border-b-4 border-accent py-2 w-full">
+          <small class="p-error block" *ngIf="loginForm.get('password')?.errors
+                && loginForm.get('password')?.hasError('required')
+                && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
+          >
+            Mot de passe requis.
+          </small>
+        </div>
+      </div><!--"-->
+      <button
+        class="p-button-raised p-button-text bg-gradient-to-r uppercase text-white font-bold from-primary to-white"
+        type="submit"
+        pButton
+        pRipple
+        label="Se connecter"
+      ></button>
+    </form>
+  </div>
+</div>
