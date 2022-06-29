@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { AppFooterComponent } from './components/main/app-footer/app-footer.component';
 import { AppHeaderComponent } from './components/main/app-header/app-header.component';
 import { SharedsModule } from './shareds';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { SharedsModule } from './shareds';
   ],
   imports: [
     BrowserModule,
-    SharedsModule
+    SharedsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
