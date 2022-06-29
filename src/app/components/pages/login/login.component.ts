@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit
   loginForm: FormGroup;
   isLoggedIn = false;
   isLoginFailed = false;
-  error = {};
+  error: any = null;
 
   constructor(
     private authService: AuthService,
@@ -34,13 +34,15 @@ export class LoginComponent implements OnInit
 
   ngOnInit(): void
   {
+    if(this.authService.isLoggedIn)
+      this.router.navigate(['/dashboard'])
   }
 
   onSubmit(): void
   {
     this.authService.login(this.loginForm.value).subscribe(
       (next: any) => this.router.navigate(['/dashboard']),
-      (error: any) => {this.isLoginFailed = true, this.error = error}
+      (error: any) => {this.isLoginFailed = true; this.error = error;console.log('login error',error)}
     );
   }
 
