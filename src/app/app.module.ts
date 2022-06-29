@@ -14,6 +14,10 @@ import {LoginComponent} from "./components/pages/login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {PasswordModule} from "primeng/password";
+import {MessagesModule} from "primeng/messages";
+import {MessageModule} from "primeng/message";
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import {RippleModule} from "primeng/ripple";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
 
     InputTextModule,
@@ -32,7 +37,10 @@ import {RippleModule} from "primeng/ripple";
 
     SharedsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PasswordModule,
+    MessagesModule,
+    MessageModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
