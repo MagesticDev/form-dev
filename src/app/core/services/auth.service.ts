@@ -26,7 +26,7 @@ export class AuthService
 
   /**
    * Logs user in against server using email & password
-   * Then saves the received token in localstorage and tries to request user infos
+   * Then saves the received token and user in localstorage
    *
    * @param credentials
    * @return Observable<any>
@@ -36,23 +36,38 @@ export class AuthService
     return this.api.post<any>(this.AUTH_API + 'login', credentials, {
       headers: this.headers
     }).pipe(tap((res: any) =>
-      {
-        this.saveToken(res.token);
-        this.getUserProfile().subscribe((res: any) =>{
-          if(res){
-            this.currentUser = res;
-            this.saveUser(res);
+        {
+          console.log('login response',res)
+          if (res)
+          {
+            this.saveToken(res.token);
+            this.currentUser = res.user;
+            this.saveUser(res.user);
           }
-        })
-      }), catchError((error: HttpErrorResponse): Observable<{status: number, user: any}> =>
-      {
+        }
+      ),
+      catchError(
+        (
+          error: HttpErrorResponse
+        ):
+
+        Observable<{
+
+          status: number,
+          user: any
+        }> =>
+        {
+          console.log(error);
           return throwError(() =>
           {
-            const err:any = new Error(error.message);
-            err.status = error.status
+            const err: any = new Error(error.message);
+            err.status = error.status;
+            return err;
           });
-      })
-    );
+        }
+      )
+    )
+      ;
   }
 
   /**
@@ -60,7 +75,9 @@ export class AuthService
    *
    * @return Observable<any>
    */
-  getUserProfile(): Observable<any>
+  getUserProfile()
+    :
+    Observable<any>
   {
     return this.api.get<any>(this.AUTH_API + '/users/account');
   }
@@ -71,9 +88,13 @@ export class AuthService
    * @param user
    * @return Observable<any>
    */
-  register(user: any): Observable<any>
+  register(user
+             :
+             any
+  ):
+    Observable<any>
   {
-    return this.api.post<any>(this.AUTH_API+'register', user, {
+    return this.api.post<any>(this.AUTH_API + 'register', user, {
       headers: this.headers
     })
   }
@@ -81,7 +102,9 @@ export class AuthService
   /**
    * Removes auth token from local storage and redirects to login page
    */
-  logout(): void
+  logout()
+    :
+    void
   {
     localStorage.removeItem(this.TOKEN_KEY);
     this.router.navigate(['login']);
@@ -93,7 +116,11 @@ export class AuthService
    *
    * @param token
    */
-  saveToken(token: string): void
+  saveToken(token
+              :
+              string
+  ):
+    void
   {
     localStorage.removeItem(this.TOKEN_KEY);
     localStorage.setItem(this.TOKEN_KEY, token);
@@ -104,7 +131,9 @@ export class AuthService
    *
    * @return string|null
    */
-  getToken(): string | null
+  getToken()
+    :
+    string | null
   {
     return localStorage.getItem(this.TOKEN_KEY);
   }
@@ -115,7 +144,11 @@ export class AuthService
    *
    * @param user
    */
-  saveUser(user: any): void
+  saveUser(user
+             :
+             any
+  ):
+    void
   {
     localStorage.removeItem(this.USER_KEY);
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
@@ -126,10 +159,12 @@ export class AuthService
    *
    * @return any|null
    */
-  getUser(): any | null
+  getUser()
+    :
+    any | null
   {
     const lsUser = localStorage.getItem(this.USER_KEY);
-    if(!lsUser) return null;
+    if (!lsUser) return null;
     this.currentUser = JSON.parse(lsUser);
     return this.currentUser;
   }
@@ -139,7 +174,9 @@ export class AuthService
    *
    * @return boolean
    */
-  get isLoggedIn(): boolean
+  get isLoggedIn()
+    :
+    boolean
   {
     let authToken = localStorage.getItem(this.TOKEN_KEY);
     return authToken !== null;
