@@ -1,11 +1,11 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')" mode="side" [(opened)]="opened">
-    <img class="logo" src="src\assets\images\form-dev-logo.png" alt=""><br>
-    <button mat-raised-button>Tableau de bord</button><br>
-    <button mat-raised-button>Activités</button><br>
-    <button mat-raised-button>Émargement</button><br>
-    <button mat-raised-button>Messagerie</button><br>
-    <button mat-raised-button>Paramètres</button><br>
+    <img class="logo" src=".\assets\images\logo.PNG" alt="logo"><br>
+    <button class="button-nav" mat-raised-button>Tableau de bord</button><br>
+    <button class="button-nav" mat-raised-button>Activités</button><br>
+    <button class="button-nav" mat-raised-button>Émargement</button><br>
+    <button class="button-nav" mat-raised-button>Messagerie</button><br>
+    <button class="button-nav" mat-raised-button>Paramètres</button><br>
   </mat-sidenav>
   <mat-sidenav-content>
     <button mat-raised-button (click)="sidenav.toggle()">Toggle</button>
