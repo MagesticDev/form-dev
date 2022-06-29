@@ -37,7 +37,6 @@ export class AuthService
       headers: this.headers
     }).pipe(tap((res: any) =>
         {
-          console.log('login response',res)
           if (res)
           {
             this.saveToken(res.token);
@@ -57,7 +56,6 @@ export class AuthService
           user: any
         }> =>
         {
-          console.log(error);
           return throwError(() =>
           {
             const err: any = new Error(error.message);
