@@ -8,12 +8,14 @@ import { SharedsModule } from './shareds';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { SidenavComponent } from './components/main/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppFooterComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
