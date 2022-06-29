@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const jsonwebtoken = require("jsonwebtoken");
 
 const JWT_SECRET = "vWYXBK$Hy$A86PWjRC52NgX15Ag&PP%vfgWgS@8TcSmmJthdb*dD6v!XVzd5";
@@ -9,8 +10,12 @@ const admin = {
 }
 
 const app = express();
+const corsOpts = {
+  origin: '#^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$#'
+}
 
 app.use(express.json());
+app.use(cors());
 app.post("/login",(req,res)=> {
   const {email, password} = req.body;
   console.log('accessed /login with', email, password);
