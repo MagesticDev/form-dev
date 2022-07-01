@@ -1,0 +1,34 @@
+.planning{
+  margin-left: 6%;
+  margin-right: 19%;
+}
+
+.layout-box{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  overflow: hidden;
+}
+.page-content{
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.top-bar{
+  width: 100%;
+  height: 6em;
+  background-color: red;
+
+}
+.titre{
+  font-size: 2em;
+}
+.date{
+  font-size: 1.5em;
+}
+
+.search-bar-container{
+  position:fixed;
+  right: 19.03%;
+}

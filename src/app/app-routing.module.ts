@@ -1,5 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { ActivityListComponent } from './components/pages/activity-list/activity-list.component';
+import { MainLayoutComponent } from './components/pages/main-layout/main-layout.component';
+
+const routes: Routes =[
+  {path: '', component: MainLayoutComponent, children: [
+    {path: '', component: ActivityListComponent}
+  ]}
+];
 
 @NgModule({
     imports: [

@@ -9,13 +9,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SidenavComponent } from './components/main/sidenav/sidenav.component';
+import { ActivityListComponent } from './components/pages/activity-list/activity-list.component';
+import { MainLayoutComponent } from './components/pages/main-layout/main-layout.component';
+import { ModuleCardComponent } from './components/module-card/module-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppFooterComponent,
     AppHeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    ActivityListComponent,
+    MainLayoutComponent,
+    ModuleCardComponent,
   ],
   imports: [
     BrowserModule,
