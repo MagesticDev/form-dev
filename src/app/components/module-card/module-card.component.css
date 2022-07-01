@@ -2,7 +2,9 @@
   background: white;
   border-radius: 5px;
   box-shadow: 0px 2px 15px 2px rgba(black, 0.068);
-
+  height: 13em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 .module-card-container:hover{
   cursor: pointer;
@@ -11,11 +13,29 @@
 
 
 .module-card-content{
+
   padding: 0.1%;
 }
 
 .module-card-title{
   font-size: 1.7em;
   font-weight: bold;
-  color: purple;
+  color: #3F93D2;
+}
+
+.teacher-name{
+  margin-right: 2%;
+  text-align: right;
+  position: relative;
+  bottom: 1.8em;
+  color: #3F93D2;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.module-card-body{
+  position: relative;
+
+  max-height: 10em;
+  overflow: hidden;
 }

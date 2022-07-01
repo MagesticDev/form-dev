@@ -1,3 +1,8 @@
 .modules-list{
   margin-top: 1em;
 }
+
+app-note-card{
+  display: block;
+  margin-bottom: 25px;
+}
