@@ -3,14 +3,13 @@
   max-width: 60%;
   margin-left: 6%;
   background-color: #FF8E51;
-  font-weight: bold;
-  color: #3F93D2;
   height: 43%;
-
 }
 
 .label{
   margin-left: 5%;
+  color: #3F93D2;
+  font-weight: bold;
 }
 
 .input{
@@ -31,11 +30,14 @@
 
 .button-text{
   text-decoration: underline;
+  color: #3F93D2;
+  font-weight: bold;
 }
 
 .button-primary{
   margin-top: 5px;
   color: white;
   background-color: #3F93D2;
+  font-weight: bold;
   padding: 0.5em;
 }
