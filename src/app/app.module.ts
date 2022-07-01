@@ -12,6 +12,8 @@ import { SidenavComponent } from './components/main/sidenav/sidenav.component';
 import { ActivityListComponent } from './components/pages/activity-list/activity-list.component';
 import { MainLayoutComponent } from './components/pages/main-layout/main-layout.component';
 import { ModuleCardComponent } from './components/module-card/module-card.component';
+import { ModuleDetailsComponent } from './components/pages/module-details/module-details.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,10 @@ import { ModuleCardComponent } from './components/module-card/module-card.compon
     ActivityListComponent,
     MainLayoutComponent,
     ModuleCardComponent,
+    ModuleDetailsComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     SharedsModule,
     BrowserAnimationsModule,

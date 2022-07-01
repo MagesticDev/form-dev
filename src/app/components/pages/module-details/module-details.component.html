@@ -1,0 +1,35 @@
+<div class="form-container">
+
+  <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+
+    <div class="field">
+      <label class="label">Nom du module</label>
+      <div class="control">
+        <input type="text" required class="input">
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Nom de l'intervenant</label>
+      <div class="control">
+        <input type="text" class="input">
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <label class="label">Détails</label>
+      <div class="control">
+        <textarea class="textarea"></textarea>
+      </div>
+      <div class="group-button">
+        <div class="control">
+          <button class="button-text" type="button">Annuler</button>
+        </div>
+        <div class="control" type="submit">
+          <button class="button-primary">Publier</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

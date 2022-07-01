@@ -1,0 +1,41 @@
+.form-container{
+  margin-top: 50px;
+  max-width: 60%;
+  margin-left: 6%;
+  background-color: #FF8E51;
+  font-weight: bold;
+  color: #3F93D2;
+  height: 43%;
+
+}
+
+.label{
+  margin-left: 5%;
+}
+
+.input{
+  margin-left: 5%;
+  width: 90%;
+}
+
+.textarea{
+  margin-left: 5%;
+  width: 90%;
+  height: 10em;
+}
+
+.group-button{
+  float: right;
+  margin-right: 5%;
+}
+
+.button-text{
+  text-decoration: underline;
+}
+
+.button-primary{
+  margin-top: 5px;
+  color: white;
+  background-color: #3F93D2;
+  padding: 0.5em;
+}
